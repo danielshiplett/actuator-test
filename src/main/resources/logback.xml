@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" scanPeriod="30 seconds" debug="false">
+
+    <property name="defaultPattern" value="%d{HH:mm:ss.SSS} %-5level %.10thread %logger{0} - %msg%n"/>
+
+    <appender name="ASYNC-CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${defaultPattern}</pattern>
+            </encoder>
+        </appender>
+    </appender>
+
+    <logger name="com.example" level="INFO" />
+
+    <root level="ERROR">
+        <appender-ref ref="ASYNC-CONSOLE"/>
+    </root>
+
+</configuration>

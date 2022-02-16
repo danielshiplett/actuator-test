@@ -1,0 +1,31 @@
+
+
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: "health,info,metrics,startup"
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      enabled: true
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    startup:
+      enabled: true
+  info:
+    git:
+      mode: full
+    env:
+      enabled: true
+    defaults:
+      enabled: true
