@@ -1,5 +1,6 @@
 package com.example.actuatortest;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -14,9 +15,8 @@ import org.springframework.http.ResponseEntity;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@Slf4j
 class ActuatorTestApplicationTests {
-
-    private static final Logger LOG = LoggerFactory.getLogger(ActuatorTestApplicationTests.class);
 
     @Autowired
     private TestRestTemplate testRestTemplate;

@@ -9,7 +9,7 @@ public class ActuatorTestApplication {
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(ActuatorTestApplication.class);
-        app.setApplicationStartup(new BufferingApplicationStartup(2048));
+        app.setApplicationStartup(new CustomBufferingApplicationStartup());
         app.run(args);
     }
 }
