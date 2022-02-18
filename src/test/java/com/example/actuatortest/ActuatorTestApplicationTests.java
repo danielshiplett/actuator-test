@@ -41,17 +41,18 @@ class ActuatorTestApplicationTests {
         response = testRestTemplate.exchange("/actuator/startup", HttpMethod.GET, null, String.class);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
         String body = response.getBody();
-        LOG.info("startup: {}", body);
+        LOG.trace("startup: {}", body);
 
         File file = new File(this.getClass().getClassLoader().getResource(".").getFile() + "/spring-boot-test-startup.json");
-        if (file.createNewFile()) {
-            LOG.info("File is created!");
-        } else {
-            LOG.info("File already exists.");
-        }
-
         FileWriter fileWriter = new FileWriter(file, false);
         fileWriter.write(body);
         fileWriter.close();
+    }
+
+    @Test
+    void secondTestDoesNothingReally() {
+        ResponseEntity<String> response = testRestTemplate.exchange("/actuator", HttpMethod.GET, null, String.class);
+        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+        LOG.trace("actuators: {}", response.getBody());
     }
 }
